@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mijncv.html">Mijn CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Contactformulier</h2>
+    <form id="contactForm">
+      <label for="naam">Naam:</label>
+      <input type="text" id="naam" name="naam" required><br>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="bericht">Bericht:</label><br>
+      <textarea id="bericht" name="bericht" rows="5" required></textarea><br>
+
+      <button type="submit" class="verzendknop">Verzenden</button>
+    </form>
+
+    <div id="melding" class="melding" style="display:none;">
+      <span class="icoon">✅</span> Je bericht is succesvol verzonden!
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mijn Naam. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const naam = document.getElementById("naam").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const bericht = document.getElementById("bericht").value.trim();
+      const melding = document.getElementById("melding");
+
+      if (naam === "" || email === "" || bericht === "") {
+        melding.innerHTML = "<span class='icoon'>⚠️</span> Vul alle velden in!";
+        melding.style.display = "block";
+        melding.style.backgroundColor = "#ffcaca";
+      } else {
+        melding.innerHTML = "<span class='icoon'>✅</span> Je bericht is succesvol verzonden!";
+        melding.style.display = "block";
+        melding.style.backgroundColor = "#d4f8e8";
+        this.reset();
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
